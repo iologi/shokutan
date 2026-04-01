@@ -241,7 +241,7 @@
   Render:永続無料枠があり、Dockerfileデプロイ対応しており、GitHub連携でデプロイがシンプルなため
 
   pg:PostgreSQLに接続
-  tailwindcss-rails:
+  tailwindcss-rails:Tailwind CSSの適用
   rails-i18n:多言語化
   rails_admin:管理画面の作成
   devise:認証機能
