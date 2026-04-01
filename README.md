@@ -195,24 +195,30 @@
 
 ### 10-1. 使用予定の技術
 
-- フレームワーク：Tailwind CSS
-- DB：Neon
+- フレームワーク：
+  Ruby 3.3.4
+  Rails ~> 7.2.3
+  Tailwind CSS
+
+- DB：Neon(PostgreSQL)
+
 - デプロイ先：Render 
+
 - 使用予定ライブラリ：
 ・MVP機能で使用するgem
-  pg
-  tailwindcss-rails
-  rails-i18n
-  rails_admin
-　devise
+  pg ~> 1.5
+  tailwindcss-rails ~> 4.4
+  rails-i18n ~> 7.0
+  rails_admin ~> 3.0
+　devise ~> 4.9
 　raty-js
 　dotenv-rails(Google Place API)
 
 ・本リリース機能で使用するgem
-　ransack
-　carrierwave
-　kaminari
-　merit
+　ransack ~> 4.1
+　carrierwave ~> 3.0
+　kaminari ~> 1.2
+　merit ~> 0.4
 
 ・デバッグ
 　better_errors
@@ -235,7 +241,7 @@
   Render:永続無料枠があり、Dockerfileデプロイ対応しており、GitHub連携でデプロイがシンプルなため
 
   pg:PostgreSQLに接続
-  tailwindcss-rails:Tailwind CSSの適用
+  tailwindcss-rails:
   rails-i18n:多言語化
   rails_admin:管理画面の作成
   devise:認証機能
