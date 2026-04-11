@@ -292,3 +292,15 @@
   - Webデザインが上手く設計できるか
 
 ---
+
+### 画面遷移図
+
+Figma：<https://www.figma.com/design/dCZ2ItP3yxKgKHmoVAj0yq/%E7%84%A1%E9%A1%8C?node-id=0-1&t=W8Vc0EtpCjtUVb1q-1>
+
+---
+
+### ER図
+
+<https://gyazo.com/75dd0f02b506cda397aaf6506546476f>
+
+---
