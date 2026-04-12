@@ -277,7 +277,6 @@
   - rails_admin:管理画面の作成
   - devise:認証機能
   - raty-js:星評価UIの作成
-  - dotenv-rails(Google Place API):環境変数管理(店舗情報の取得)
   - ransack:検索機能、並び替え
   - carrierwave:写真投稿
   - kaminari:ページネーション
@@ -290,5 +289,17 @@
 - 不安な点
   - 初めて使うgemが問題なく適用できるか
   - Webデザインが上手く設計できるか
+
+---
+
+### 画面遷移図
+
+Figma：<https://www.figma.com/design/dCZ2ItP3yxKgKHmoVAj0yq/%E7%84%A1%E9%A1%8C?node-id=0-1&t=W8Vc0EtpCjtUVb1q-1>
+
+---
+
+### ER図
+
+<https://gyazo.com/41e0bccf0b0c23e69702ae0be6ee5ceb>
 
 ---
