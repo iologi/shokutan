@@ -36,10 +36,33 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'rails-i18n' # Railsの日本語化
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  #デバッガ
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'byebug'
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 
+  # エラー画面強化
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  # テスト
+  gem "rspec-rails"
+  gem "rspec_junit_formatter"
+  gem "faker"
+  gem "factory_bot_rails"
+  
+  # Lint
+  gem "rubocop"
+  gem "rubocop-rails"
+  gem "rubocop-checkstyle_formatter"
+  
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
@@ -56,4 +79,5 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"  # テストコードの簡潔化
 end
