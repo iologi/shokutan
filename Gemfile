@@ -10,9 +10,9 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+# Hotwire"s SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+# Hotwire"s modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
@@ -36,33 +36,33 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'rails-i18n' # Railsの日本語化
+gem "rails-i18n" # Railsの日本語化
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  #デバッガ
+  # デバッガ
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'byebug'
-  gem 'pry'
-  gem 'pry-doc'
-  gem 'pry-rails'
-  gem 'pry-byebug'
+  gem "byebug"
+  gem "pry"
+  gem "pry-doc"
+  gem "pry-rails"
+  gem "pry-byebug"
 
   # エラー画面強化
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  gem "better_errors"
+  gem "binding_of_caller"
 
   # テスト
   gem "rspec-rails"
   gem "rspec_junit_formatter"
   gem "faker"
   gem "factory_bot_rails"
-  
+
   # Lint
   gem "rubocop"
   gem "rubocop-rails"
   gem "rubocop-checkstyle_formatter"
-  
+
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 

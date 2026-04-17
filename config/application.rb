@@ -24,14 +24,13 @@ module Myapp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.generators.system_tests = nil
-    
+
     config.generators do |g|
       g.skip_routes true # ルーティングの記述を加えないようにする設定
       g.helper false # ヘルパーファイルを自動生成しないようにする設定
-      g.test_framework nil #テストフレームワークを使わないようにする設定
+      g.test_framework nil # テストフレームワークを使わないようにする設定
     end
 
     config.i18n.default_locale = :ja
   end
-  
 end
