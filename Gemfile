@@ -39,6 +39,9 @@ gem "bootsnap", require: false
 gem "devise" # 認証
 gem "devise-i18n" # Deviseの日本語化
 gem "rails-i18n" # Railsの日本語化
+gem "rails_admin", "~> 3.0" # 管理画面作成
+gem "cancancan" # 権限管理
+gem "sassc-rails" # sassのコンパイルを高速化・rails-adminが依存
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -83,3 +86,4 @@ group :test do
   gem "selenium-webdriver"
   gem "shoulda-matchers"  # テストコードの簡潔化
 end
+
