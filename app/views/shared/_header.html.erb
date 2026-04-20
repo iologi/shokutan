@@ -1,10 +1,10 @@
 <header class="w-full bg-[#F2EEE3] shadow p-4 flex justify-between items-center">
   <%= image_tag "shokutan_logo.png", alt: "食探ロゴ", class: "h-20 w-auto" %>
   <div class="flex gap-4">
-    <%= link_to "食材一覧", '#', class: "text-gray-700 hover:text-black" %>
+    <%= link_to "食材一覧", root_path, class: "text-gray-700 hover:text-black" %>
     <%= link_to "「食べたい」リスト", '#', class: "text-gray-700 hover:text-black" %>
     <%= link_to "「食べた」リスト", '#', class: "text-gray-700 hover:text-black" %>
     <%= link_to "レビュー一覧", '#', class: "text-gray-700 hover:text-black" %>
-    <%= link_to "ログアウト", '#', class: 'dropdown-item', data: { turbo_method: :delete } %>
+    <%= link_to "ログアウト", destroy_user_session_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
   </div>
 </header>
