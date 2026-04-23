@@ -11,12 +11,13 @@ RailsAdmin.config do |config|
 
   ## == CancanCan ==
   config.authorize_with :cancancan
+  config.parent_controller = "::ApplicationController"
 
   ## == Pundit ==
   # config.authorize_with :pundit
 
   ## == PaperTrail ==
-  # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
+  # config.audit_with :paper_trail, "User", "PaperTrail::Version" # PaperTrail >= 3.0.0
 
   ### More at https://github.com/railsadminteam/rails_admin/wiki/Base-configuration
 
@@ -40,7 +41,7 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.model 'User' do
+  config.model "User" do
     edit do
       exclude_fields :password, :password_confirmation
     end
