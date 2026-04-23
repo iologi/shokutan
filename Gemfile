@@ -86,4 +86,3 @@ group :test do
   gem "selenium-webdriver"
   gem "shoulda-matchers"  # テストコードの簡潔化
 end
-
