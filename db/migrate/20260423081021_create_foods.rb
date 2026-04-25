@@ -6,7 +6,7 @@ class CreateFoods < ActiveRecord::Migration[7.2]
       t.integer :rarity
       t.string :image_url
       t.string :description
-      
+
       t.timestamps
     end
   end
