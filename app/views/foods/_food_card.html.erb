@@ -1,27 +1,29 @@
-<div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
-  <!-- 画像 -->
-  <div>
-    <%= image_tag(food.image_url || "sample.png", class: "w-full aspect-square object-cover") %>
-  </div>
-
-  <!-- 本文 -->
-  <div class="p-3">
-    <div class="flex items-start">
-      <!-- 食材名 -->
-      <p class="text-lg font-semibold text-gray-800 line-clamp-2 flex-grow">
-        <%= food.name %>
-      </p>
-      <!-- 「食べたい」(ブックマーク) -->
-      <button class="text-red-400 text-2xl leading-none ml-2">
-        ♥
-      </button>
+<%= link_to food_path(food), class: "block" do %>
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
+    <!-- 画像 -->
+    <div>
+      <%= image_tag(food.image_url || "sample.png", class: "w-full aspect-square object-cover") %>
     </div>
-    <!-- レア度 -->
-    <p class="text-m font-semibold text-gray-800 mt-1">
-      希少度：
-      <span class="font-bold tracking-wide text-yellow-400 drop-shadow">
-        <%= "♦" * food.rarity_before_type_cast %>
-      </span>
-    </p>
+
+    <!-- 本文 -->
+    <div class="p-3">
+      <div class="flex items-start">
+        <!-- 食材名 -->
+        <p class="text-lg font-semibold line-clamp-2 flex-grow">
+          <%= food.name %>
+        </p>
+        <!-- 「食べたい」(ブックマーク) -->
+        <button class="text-red-400 text-2xl leading-none ml-2">
+          ♥
+        </button>
+      </div>
+      <!-- レア度 -->
+      <p class="text-m font-semibold text-gray-800 mt-1">
+        レア度：
+        <span class="font-bold tracking-wide text-yellow-400 drop-shadow">
+          <%= "♦" * food.rarity_before_type_cast %>
+        </span>
+      </p>
+    </div>
   </div>
-</div>
+<% end %>
