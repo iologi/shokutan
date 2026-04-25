@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root "static_pages#top"
+  root "foods#index"
   devise_for :users
 end

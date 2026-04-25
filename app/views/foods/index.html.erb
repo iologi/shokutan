@@ -1,0 +1,10 @@
+<div class="container mx-auto pt-3">
+  <!-- 検索フォーム -->
+  <!-- 絞り込みボタン -->
+  <!-- カード一覧 -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <% @foods.each do |food| %>
+      <%= render "food_card", food: food %>
+    <% end %>
+  </div>
+</div>
