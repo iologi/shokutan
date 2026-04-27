@@ -7,3 +7,79 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+foods = [
+  {
+    name: "ハラミ",
+    rarity: "common",
+    image_url: "foods/harami.jpg",
+    description: "横隔膜の腹側で、柔らかく適度に脂肪がある。"
+  },
+  {
+    name: "サガリ",
+    rarity: "common",
+    image_url: "foods/sagari.jpg",
+    description: "横隔膜の腰椎に近い部分で脂身がなく、あっさりしていてスジが少なく柔らかい。"
+  },
+  {
+    name: "ランプ",
+    rarity: "common",
+    image_url: "foods/rump.jpg",
+    description: "もも肉の中でも柔らかく、味に深みがある。"
+  },
+  {
+    name: "イチボ",
+    rarity: "common",
+    image_url: "foods/ichibo.jpg",
+    description: "臀部の骨周りに位置する部位で、赤身と脂のバランスが良い。"
+  },
+  {
+    name: "フランク（ササミ）",
+    rarity: "rare",
+    image_url: "foods/frank.jpg",
+    description: "肉質はきめが細かく柔らかい。"
+  },
+  {
+    name: "ミスジ",
+    rarity: "rare",
+    image_url: "foods/misuji.jpg",
+    description: "霜降りが美しく柔らかい。"
+  },
+  {
+    name: "トモサンカク",
+    rarity: "rare",
+    image_url: "foods/tomo-sankaku.jpg",
+    description: "霜降りがしっかり入り、赤身の旨味も楽しめる。"
+  },
+  {
+    name: "カイノミ",
+    rarity: "rare",
+    image_url: "foods/kainomi.jpg",
+    description: "ヒレのような柔らかさと脂の旨みがある。"
+  },
+  {
+    name: "ザブトン（ハネシタ）",
+    rarity: "rare",
+    image_url: "foods/zabuton.jpg",
+    description: "全体に美しいサシが入り、濃厚でとろける味わい。"
+  },
+  {
+    name: "シンシン（マルシン）",
+    rarity: "epic",
+    image_url: "foods/shinshin.jpg",
+    description: "きめ細かく濃厚で柔らかな赤身。"
+  },
+  {
+    name: "トンビ（トウガラシ）",
+    rarity: "epic",
+    image_url: "foods/tonbi.jpg",
+    description: "旨味が強く、形が唐辛子に似ている。"
+  }
+]
+
+foods.each do |data|
+  Food.find_or_create_by(name: data[:name]) do |record|
+    record.rarity = data[:rarity]
+    record.image_url = data[:image_url]
+    record.description = data[:description]
+  end
+end
