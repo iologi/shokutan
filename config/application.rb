@@ -31,6 +31,7 @@ module Myapp
       g.test_framework nil # テストフレームワークを使わないようにする設定
     end
 
+    config.time_zone = "Tokyo"
     config.i18n.default_locale = :ja
   end
 end
