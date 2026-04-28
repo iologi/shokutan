@@ -6,6 +6,6 @@ class CreateWishlistFoods < ActiveRecord::Migration[7.2]
 
       t.timestamps
     end
-    add_index :wishlist_foods, [:user_id, :food_id], unique: true
+    add_index :wishlist_foods, [ :user_id, :food_id ], unique: true
   end
 end
