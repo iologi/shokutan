@@ -1,0 +1,5 @@
+<%= link_to wishlist_foods_path(food_id: food.id),
+            id: "wishlist-button-for-food-#{food.id}",
+            data: { turbo_method: :post } do %>
+  <i class="bi bi-heart"></i>
+<% end %>

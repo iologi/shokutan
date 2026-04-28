@@ -1,0 +1,7 @@
+<div class="text-red-400 text-2xl leading-none ml-2">
+  <% if current_user.wishlist?(food) %>
+    <%= render "unwishlist", { food: food } %>
+  <% else %>
+    <%= render "wishlist", { food: food } %>
+  <% end %>
+</div>

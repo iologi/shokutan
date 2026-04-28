@@ -10,14 +10,14 @@ class User < ApplicationRecord
   has_many :wishlisted_foods, through: :wishlist_foods, source: :food
 
   def wishlist(food)
-    wishlist_foods << food
+    wishlisted_foods << food
   end
 
   def unwishlist(food)
-    wishlist_foods.destroy(food)
+    wishlisted_foods.destroy(food)
   end
 
   def wishlist?(food)
-    wishlist_foods.include?(food)
+    wishlisted_foods.include?(food)
   end
 end
