@@ -15,5 +15,10 @@ Rails.application.routes.draw do
 
   root "foods#index"
   devise_for :users
-  resources :foods, only: %i[index show]
+  resources :foods, only: %i[index show] do
+    collection do
+      get :wishlist_foods
+    end
+  end
+  resources :wishlist_foods, only: %i[create destroy]
 end
