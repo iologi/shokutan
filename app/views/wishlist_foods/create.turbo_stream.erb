@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "wishlist-button-for-food-#{@food.id}" do %>
+  <%= render 'foods/unwishlist', food: @food %>
+<% end %>

@@ -28,9 +28,7 @@
           食べた
         </button>
         <!-- 「食べたい」(ブックマーク) -->
-        <button class="text-red-400 text-2xl leading-none ml-2">
-          ♥
-        </button>
+        <%= render 'wishlist_buttons', { food: @food } %>
       </div>
     </div>
   </div>

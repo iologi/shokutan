@@ -1,0 +1,5 @@
+<%= link_to wishlist_food_path(current_user.wishlist_foods.find_by(food_id: food.id)),
+            id: "unwishlist-button-for-food-#{food.id}",
+            data: { turbo_method: :delete } do %>
+  <i class="bi bi-heart-fill"></i>
+<% end %>
