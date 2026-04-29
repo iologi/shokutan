@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :foods, only: %i[index show] do
     collection do
-      get :wishlist_foods
+      get :wishlist_foods, as: :wish_list
     end
   end
   resources :wishlist_foods, only: %i[create destroy]
