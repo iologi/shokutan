@@ -1,0 +1,32 @@
+<% @foods.each do |food| %>
+  <div class="bg-white rounded-lg shadow mb-4 overflow-hidden max-w-3xl mx-auto">
+    <div class="flex justify-start">
+      <!-- 左：画像 -->
+      <div class="w-1/4 aspect-square overflow-hidden rounded-l-lg">
+        <%= image_tag food.image_url, class: "w-full h-full rounded-xl object-cover" %>
+      </div>
+      <!-- 右：情報 -->
+      <div class="w-2/3 p-4 flex flex-col justify-between">
+        <div>
+          <p class="text-xl font-bold"><%= food.name %></p>
+          <p class="text-lg font-bold text-gray-500"><%= food.category.name %></p>
+          <!-- レア度 -->
+          <div class="text-lg font-semibold text-gray-800">
+            レア度：
+            <span class="font-bold tracking-wide text-yellow-400 drop-shadow text-lg">
+              <%= "♦" * food.rarity_before_type_cast %>
+            </span>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 mt-3">
+          <!-- 食べたボタン -->
+          <button class= "px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700">
+            食べた
+          </button>
+          <!-- 「食べたい」(ブックマーク) -->
+          <%= render 'wishlist_buttons', food: food %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
