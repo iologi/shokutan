@@ -8,7 +8,7 @@
       <!-- 右：情報 -->
       <div class="w-2/3 p-4 flex flex-col justify-between">
         <div>
-          <p class="text-xl font-bold"><%= food.name %></p>
+          <h1 class="text-xl font-bold"><%= food.name %></h1>
           <p class="text-lg font-bold text-gray-500"><%= food.category.name %></p>
           <!-- レア度 -->
           <div class="text-lg font-semibold text-gray-800">
@@ -20,12 +20,12 @@
         </div>
         <div class="flex items-center gap-4 mt-3">
           <!-- 食べたボタン -->
-          <button class= "px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700">
-            食べた
-          </button>
+          <%= render 'eaten_foods/eaten_button', { food: food } %>
           <!-- 「食べたい」(ブックマーク) -->
           <%= render 'wishlist_buttons', food: food %>
         </div>
+        <!-- 食べたボタン日付入力フォーム -->
+        <div id="eaten-food-form-<%= food.id %>" class= "mt-6"></div>
       </div>
     </div>
   </div>
