@@ -24,17 +24,17 @@
       </p>
       <div class="flex items-center gap-4 mt-3">
         <!-- 食べたボタン -->
-        <button class= "px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700">
-          食べた
-        </button>
+        <%= render 'eaten_foods/eaten_button', { food: @food } %>
         <!-- 「食べたい」(ブックマーク) -->
         <%= render 'wishlist_buttons', { food: @food } %>
       </div>
+      <!-- 食べたボタン日付入力フォーム -->
+      <div id="eaten-food-form-<%= @food.id %>"></div>
     </div>
   </div>
   <!-- 特徴 -->
   <div class="mt-6">
-    <h2 class="text-lg font-semibold mb-2">特徴</h2>
+    <h1 class="text-lg font-semibold mb-2">特徴</h1>
     <p class="text-gray-700 leading-relaxed">
       <%= @food.description %>
     </p>

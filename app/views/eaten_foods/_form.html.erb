@@ -1,0 +1,10 @@
+<div class="p-4 bg-white rounded shadow mt-1">
+  <h1 class="font-bold mb-2">食べた日を入力</h1>
+  <%= form_with model: @eaten_food, url: eaten_foods_path, data: { turbo_stream: true } do |f| %>
+    <%= f.hidden_field :food_id, value: food.id %>
+    <div class="mb-2">
+      <%= f.date_field :ate_on, value: Date.today, class: "border rounded px-2 py-1" %>
+    </div>
+    <%= f.submit "保存", class: "px-4 py-2 bg-blue-600 text-white rounded" %>
+  <% end %>
+</div>

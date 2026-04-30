@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "eaten-food-form-#{@food.id}" do %>
+  <%= render "form", food: @food %>
+<% end %>
