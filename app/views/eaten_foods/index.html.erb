@@ -17,13 +17,15 @@
           食べた日: <%= eaten.ate_on %>
         </p>
       </div>
-      <!-- レビューを書く -->
+      <!-- レビューボタン -->
       <div class="w-1/6 text-center">
         <%= link_to "レビューを書く", '#', class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %>
       </div>
-      <!-- ゴミ箱（Bootstrap Icons） -->
+      <!-- 削除ボタン -->
       <div class="w-12 text-center">
-        <button class="bi bi-trash"></button>
+        <%= link_to eaten_food_path(eaten), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+          <i class="bi bi-trash"></i>
+        <% end %>
       </div>
     </div>
   <% end %>

@@ -17,6 +17,12 @@ class EatenFoodsController < ApplicationController
     end
   end
 
+  def destroy
+    eaten_food = current_user.eaten_foods.find(params[:id])
+    eaten_food.destroy!
+    redirect_to eaten_foods_path
+  end
+
   private
 
   def eaten_food_params
