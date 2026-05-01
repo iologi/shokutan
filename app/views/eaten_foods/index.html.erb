@@ -1,0 +1,30 @@
+<div class="container mx-auto pt-3">
+  <% @eaten_foods.each do |eaten| %>
+    <div class="bg-white rounded-lg shadow p-4 mb-3 flex items-center justify-between max-w-3xl w-full mx-auto">
+      <!-- 食材名 -->
+      <div class="w-1/4">
+        <p class="text-lg font-bold"><%= eaten.food.name %></p>
+      </div>
+      <!-- 満足度 -->
+      <div class="w-1/6 text-center">
+        <p class="text-gray-800 font-semibold">
+          満足度:
+        </p>
+      </div>
+      <!-- 食べた日 -->
+      <div class="w-1/4 text-center">
+        <p class="text-gray-800">
+          食べた日: <%= eaten.ate_on %>
+        </p>
+      </div>
+      <!-- レビューを書く -->
+      <div class="w-1/6 text-center">
+        <%= link_to "レビューを書く", '#', class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %>
+      </div>
+      <!-- ゴミ箱（Bootstrap Icons） -->
+      <div class="w-12 text-center">
+        <button class="bi bi-trash"></button>
+      </div>
+    </div>
+  <% end %>
+</div>
