@@ -1,4 +1,8 @@
 class EatenFoodsController < ApplicationController
+  def index
+    @eaten_foods = current_user.eaten_foods.includes(:food).order(ate_on: :desc)
+  end
+
   def new
     @food = Food.find(params[:food_id])
     @eaten_food = current_user.eaten_foods.new(food: @food)

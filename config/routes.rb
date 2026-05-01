@@ -21,5 +21,5 @@ Rails.application.routes.draw do
     end
   end
   resources :wishlist_foods, only: %i[create destroy]
-  resources :eaten_foods, only: %i[new create]
+  resources :eaten_foods, only: %i[index new create]
 end

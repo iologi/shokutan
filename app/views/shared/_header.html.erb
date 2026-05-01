@@ -3,7 +3,7 @@
   <div class="flex gap-4">
     <%= link_to "食材一覧", root_path, class: "text-gray-700 hover:text-black" %>
     <%= link_to "「食べたい」リスト", wish_list_foods_path, class: "text-gray-700 hover:text-black" %>
-    <%= link_to "「食べた」リスト", '#', class: "text-gray-700 hover:text-black" %>
+    <%= link_to "「食べた」リスト", eaten_foods_path, class: "text-gray-700 hover:text-black" %>
     <%= link_to "レビュー一覧", '#', class: "text-gray-700 hover:text-black" %>
     <%= link_to "ログアウト", destroy_user_session_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
   </div>
