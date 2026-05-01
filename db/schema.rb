@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_04_29_142547) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_01_135620) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,18 @@ ActiveRecord::Schema[7.2].define(version: 2026_04_29_142547) do
     t.index ["name"], name: "index_foods_on_name", unique: true
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "eaten_food_id", null: false
+    t.integer "satisfaction", null: false
+    t.text "comment"
+    t.string "recipe"
+    t.string "place"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["eaten_food_id"], name: "index_reviews_on_eaten_food_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -70,6 +82,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_04_29_142547) do
   add_foreign_key "eaten_foods", "foods"
   add_foreign_key "eaten_foods", "users"
   add_foreign_key "foods", "categories"
+  add_foreign_key "reviews", "eaten_foods"
   add_foreign_key "wishlist_foods", "foods"
   add_foreign_key "wishlist_foods", "users"
 end
