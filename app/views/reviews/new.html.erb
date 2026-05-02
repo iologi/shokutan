@@ -1,0 +1,21 @@
+<div class="min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-md bg-white shadow-md rounded-lg p-8">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">レビュー投稿</h2>
+    <h2 class="text-xl font-bold mb-2 text-gray-700"><%= @eaten_food.food.name %></h2>
+    <%= form_with model: @review, url: eaten_food_review_path(@eaten_food) do |f| %>
+      <div class="field">
+        <p><%= f.label :satisfaction, "満足度", class: "block text-sm font-medium text-gray-700" %></p>
+        <p><%= f.number_field :satisfaction, class: "mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm" %></p>
+      </div>
+
+      <div class="field">
+        <p><%= f.label :comment, "コメント", class: "block text-sm font-medium text-gray-700" %></p>
+        <p><%= f.text_field :comment, class: "mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm" %></p>
+      </div>
+
+      <div class="actions mt-6">
+        <%= f.submit "投稿", class: "w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition" %>
+      </div>
+    <% end %>
+  </div>
+</div>
