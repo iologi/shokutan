@@ -9,9 +9,9 @@ class EatenFoodsController < ApplicationController
   end
 
   def create
-    @eaten_food = current_user.eaten_foods.new(eaten_food_params)
+    @eaten_food = current_user.eaten_foods.build(eaten_food_params)
     if @eaten_food.save
-      redirect_to "#"
+      redirect_to new_eaten_food_review_path(eaten_food_id: @eaten_food.id)
     else
       render :new
     end
