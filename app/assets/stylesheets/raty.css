@@ -1,0 +1,11 @@
+.raty {
+  display: inline-block;
+}
+
+.raty img {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  cursor: pointer;
+}

@@ -21,16 +21,4 @@ class User < ApplicationRecord
   def wishlist?(food)
     wishlisted_foods.include?(food)
   end
-
-  def eat(food, ate_on: Date.today, custom_name: nil)
-    eaten_foods.create(food: food, ate_on: ate_on, custom_name: custom_name)
-  end
-
-  def uneat(eaten_food)
-    eaten_foods.destroy(eaten_food)
-  end
-
-  def eaten?(food, ate_on: Date.today)
-    eaten_foods.exists?(food: food, ate_on: ate_on)
-  end
 end

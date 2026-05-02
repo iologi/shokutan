@@ -1,32 +1,36 @@
-<% @foods.each do |food| %>
-  <div class="bg-white rounded-lg shadow mb-4 overflow-hidden max-w-3xl mx-auto">
-    <div class="flex justify-start">
-      <!-- 左：画像 -->
-      <div class="w-1/4 aspect-square overflow-hidden rounded-l-lg">
-        <%= image_tag food.image_url, class: "w-full h-full rounded-xl object-cover" %>
-      </div>
-      <!-- 右：情報 -->
-      <div class="w-2/3 p-4 flex flex-col justify-between">
-        <div>
-          <h1 class="text-xl font-bold"><%= food.name %></h1>
-          <p class="text-lg font-bold text-gray-500"><%= food.category.name %></p>
-          <!-- レア度 -->
-          <div class="text-lg font-semibold text-gray-800">
-            レア度：
-            <span class="font-bold tracking-wide text-yellow-400 drop-shadow text-lg">
-              <%= "♦" * food.rarity_before_type_cast %>
-            </span>
+<div class="container mx-auto pt-3">
+  <% @foods.each do |food| %>
+    <div class="bg-white rounded-lg shadow mb-4 overflow-hidden max-w-3xl mx-auto">
+      <div class="flex justify-start">
+        <!-- 左：画像 -->
+        <div class="w-1/4 aspect-square overflow-hidden rounded-l-lg">
+          <%= image_tag food.image_url, class: "w-full h-full rounded-xl object-cover" %>
+        </div>
+        <!-- 右：情報 -->
+        <div class="w-2/3 p-4 flex flex-col justify-between">
+          <div>
+            <%= link_to food_path(food), class: "text-xl font-bold" do %>
+              <%= food.name %>
+            <% end %>
+            <p class="text-lg font-bold text-gray-500"><%= food.category.name %></p>
+            <!-- レア度 -->
+            <div class="text-lg font-semibold text-gray-800">
+              レア度：
+              <span class="font-bold tracking-wide text-yellow-400 drop-shadow text-lg">
+                <%= "♦" * food.rarity_before_type_cast %>
+              </span>
+            </div>
           </div>
+          <div class="flex items-center gap-4 mt-3">
+            <!-- 食べたボタン -->
+            <%= render 'eaten_foods/eaten_button', { food: food } %>
+            <!-- 「食べたい」(ブックマーク) -->
+            <%= render 'wishlist_buttons', food: food %>
+          </div>
+          <!-- 食べたボタン日付入力フォーム -->
+          <div id="eaten-food-form-<%= food.id %>" class= "mt-6"></div>
         </div>
-        <div class="flex items-center gap-4 mt-3">
-          <!-- 食べたボタン -->
-          <%= render 'eaten_foods/eaten_button', { food: food } %>
-          <!-- 「食べたい」(ブックマーク) -->
-          <%= render 'wishlist_buttons', food: food %>
-        </div>
-        <!-- 食べたボタン日付入力フォーム -->
-        <div id="eaten-food-form-<%= food.id %>" class= "mt-6"></div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

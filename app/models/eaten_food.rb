@@ -2,5 +2,5 @@ class EatenFood < ApplicationRecord
   belongs_to :user
   belongs_to :food, optional: true
 
-  validates :user_id, presence: true
+  has_one :review, dependent: :destroy
 end
