@@ -2,10 +2,14 @@
   <div class="w-full max-w-md bg-white shadow-md rounded-lg p-8">
     <h2 class="text-2xl font-bold mb-6 text-gray-800">レビュー投稿</h2>
     <h2 class="text-xl font-bold mb-2 text-gray-700"><%= @eaten_food.food.name %></h2>
+    
     <%= form_with model: @review, url: eaten_food_review_path(@eaten_food) do |f| %>
-      <div class="field">
+      <div class="field mb-2">
         <p><%= f.label :satisfaction, "満足度", class: "block text-sm font-medium text-gray-700" %></p>
-        <p><%= f.number_field :satisfaction, class: "mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm" %></p>
+        <!-- ratyを描画 -->
+        <div id="star_<%= @review.id %>" class="raty"></div>
+        <!-- 実際に送信される値 -->
+        <%= f.hidden_field :satisfaction, id: "satisfaction_#{@review.id}" %>
       </div>
 
       <div class="field">
@@ -19,3 +23,24 @@
     <% end %>
   </div>
 </div>
+
+<script>
+document.addEventListener("turbo:load", () => {
+  const elem = document.querySelector("#star_<%= @review.id %>");
+  if (!elem) return;
+
+  const hidden = document.querySelector("#satisfaction_<%= @review.id %>");
+
+  elem.innerHTML = "";
+
+  window.raty(elem, {
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    score: <%= @review.satisfaction || 0 %>,
+    click: function(score) {
+      hidden.value = score;
+    }
+  });
+});
+</script>
