@@ -7,9 +7,9 @@
       <div class="field mb-2">
         <p><%= f.label :satisfaction, "満足度", class: "block text-sm font-medium text-gray-700" %></p>
         <!-- ratyを描画 -->
-        <div id="star_<%= @review.id %>" class="raty"></div>
+        <div id="star_new" class="raty"></div>
         <!-- 実際に送信される値 -->
-        <%= f.hidden_field :satisfaction, id: "satisfaction_#{@review.id}" %>
+        <%= f.hidden_field :satisfaction, id: "satisfaction_new" %>
       </div>
 
       <div class="field">
@@ -26,11 +26,13 @@
 
 <script>
 document.addEventListener("turbo:load", () => {
-  const elem = document.querySelector("#star_<%= @review.id %>");
+  const elem = document.querySelector("#star_new");
   if (!elem) return;
 
-  const hidden = document.querySelector("#satisfaction_<%= @review.id %>");
+  const hidden = document.querySelector("#satisfaction_new");
 
+  elem.removeAttribute("data-read-only");
+  elem.removeAttribute("style");
   elem.innerHTML = "";
 
   window.raty(elem, {
