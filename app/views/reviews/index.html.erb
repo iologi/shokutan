@@ -1,0 +1,78 @@
+<div class="container mx-auto pt-3">
+  <% @reviews.each do |review| %>
+    <% food = review.eaten_food.food %>
+    <% eaten = review.eaten_food %>
+
+    <div class="bg-white rounded-lg shadow mb-4 overflow-hidden max-w-3xl mx-auto">
+      <div class="flex justify-start">
+        <!-- 左：画像 -->
+        <div class="w-1/4 aspect-square overflow-hidden rounded-l-lg">
+          <%= image_tag(review.image_url || "sample.png", class: "w-full h-full object-cover") %>
+        </div>
+        <div class="w-3/4 p-4 flex flex-col gap-2">
+          <div class="flex justify-between items-start">
+            <!-- 食材名・カテゴリ・食べた日 -->
+            <div>
+              <%= link_to food_path(food), class: "text-xl font-bold" do %>
+                <%= food.name %>
+              <% end %>
+              <p class="text-gray-600 text-lg font-semibold">カテゴリー : <%= food.category.name %></p>
+              <p class="text-gray-500 text-sm">食べた日：<%= eaten.ate_on %></p>
+            </div>
+          <!-- 編集 + 削除ボタン -->
+          <div class="flex flex-col gap-2 items-end">
+            <!-- 編集ボタン -->
+            <%= link_to "レビューを編集", '#', class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %>
+            <!-- 削除ボタン -->
+            <%= link_to "削除", '#',
+                  data: { turbo_method: :delete, turbo_confirm: "削除しますか？" },
+                  class: "inline-flex items-center gap-2 bg-red-600 text-white font-bold px-3 py-1.5 rounded-md hover:bg-red-700 text-sm" %>
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-10">
+            <!-- レア度 -->
+            <div class="flex items-center gap-1">
+              <p class="text-lg font-semibold text-gray-800">レア度：</p>
+              <span class="text-yellow-400 font-bold text-xl inline-block w-16">
+                <%= "♦" * food.rarity_before_type_cast %>
+              </span>
+            </div>
+            <!-- 満足度 -->
+            <div class="flex items-center gap-1">
+              <p class="text-gray-800 font-semibold">満足度：</p>
+              <div id="star_<%= eaten.review.id %>"
+                  class="raty inline-block"
+                  data-score="<%= eaten.review.satisfaction %>"></div>
+            </div>
+          </div>
+        </div>
+          <!-- コメント -->
+          <div class="mt-1">
+            <p class="text-gray-700 text-xl">
+              <%= review.comment %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+document.addEventListener("turbo:load", () => {
+  document.querySelectorAll(".raty").forEach((elem) => {
+    const score = Number(elem.dataset.score);
+
+    elem.innerHTML = "";
+
+    window.raty(elem, {
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: score,
+      readOnly: true,
+    });
+  });
+});
+</script>
