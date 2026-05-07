@@ -1,41 +1,48 @@
 <div class="container mx-auto pt-3">
-  <% @eaten_foods.each do |eaten| %>
-    <div class="bg-white rounded-lg shadow p-4 mb-3 flex items-center justify-between max-w-5xl w-full mx-auto">
-      <!-- 食材名 -->
-      <div class="w-1/5">
-        <%= link_to food_path(eaten.food), class: "text-lg font-bold" do %>
-          <%= eaten.food.name %>
-        <% end %>
+  <% if @eaten_foods.any? %>
+    <% @eaten_foods.each do |eaten| %>
+      <div class="bg-white rounded-lg shadow p-4 mb-3 flex items-center justify-between max-w-5xl w-full mx-auto">
+        <!-- 食材名 -->
+        <div class="w-1/5">
+          <%= link_to food_path(eaten.food), class: "text-lg font-bold" do %>
+            <%= eaten.food.name %>
+          <% end %>
+        </div>
+        <!-- 満足度 -->
+        <div class="w-1/5 text-center">
+          <% if eaten.review.present? %>
+            <div class="flex items-center justify-center gap-1">
+              <p class="text-gray-800 font-semibold">満足度：</p>
+              <div id="star_<%= eaten.review.id %>" class="raty inline-block" data-score="<%= eaten.review.satisfaction %>"></div>
+            </div>
+          <% else %>
+            <p class="text-gray-800 font-semibold">未レビュー</p>
+          <% end %>
+        </div>
+        <!-- 食べた日 -->
+        <div class="w-1/5 text-center">
+          <p class="text-gray-800">食べた日: <%= eaten.ate_on %></p>
+        </div>
+        <!-- レビューボタン -->
+        <div class="w-1/5 text-center">
+          <% if eaten.review.present? %>
+            <p class="text-gray-800 font-semibold">未レビュー</p>
+            <!-- <%= link_to "レビューを編集", '#', class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %> -->
+          <% else %>
+            <%= link_to "レビューを書く", new_eaten_food_review_path(eaten_food_id: eaten.id), class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %>
+          <% end %>
+        </div>
+        <!-- 削除ボタン -->
+        <div class="w-12 text-center">
+          <%= link_to eaten_food_path(eaten), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
+            <i class="bi bi-trash"></i>
+          <% end %>
+        </div>
       </div>
-      <!-- 満足度 -->
-      <div class="w-1/5 text-center">
-        <% if eaten.review.present? %>
-          <div class="flex items-center justify-center gap-1">
-            <p class="text-gray-800 font-semibold">満足度：</p>
-            <div id="star_<%= eaten.review.id %>" class="raty inline-block" data-score="<%= eaten.review.satisfaction %>"></div>
-          </div>
-        <% else %>
-          <p class="text-gray-800 font-semibold">未レビュー</p>
-        <% end %>
-      </div>
-      <!-- 食べた日 -->
-      <div class="w-1/5 text-center">
-        <p class="text-gray-800">食べた日: <%= eaten.ate_on %></p>
-      </div>
-      <!-- レビューボタン -->
-      <div class="w-1/5 text-center">
-        <% if eaten.review.present? %>
-          <%= link_to "レビューを編集", '#', class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %>
-        <% else %>
-          <%= link_to "レビューを書く", new_eaten_food_review_path(eaten_food_id: eaten.id), class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %>
-        <% end %>
-      </div>
-      <!-- 削除ボタン -->
-      <div class="w-12 text-center">
-        <%= link_to eaten_food_path(eaten), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" } do %>
-          <i class="bi bi-trash"></i>
-        <% end %>
-      </div>
+    <% end %>
+  <% else %>
+    <div class="text-center font-bold text-gray-600 text-lg py-10">
+      食材がありません
     </div>
   <% end %>
 </div>
