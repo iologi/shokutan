@@ -25,7 +25,8 @@
       <!-- レビューボタン -->
       <div class="w-1/5 text-center">
         <% if eaten.review.present? %>
-          <%= link_to "レビューを編集", '#', class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %>
+          <p class="text-gray-800 font-semibold">未レビュー</p>
+          <!-- <%= link_to "レビューを編集", '#', class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %> -->
         <% else %>
           <%= link_to "レビューを書く", new_eaten_food_review_path(eaten_food_id: eaten.id), class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %>
         <% end %>
