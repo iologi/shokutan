@@ -10,6 +10,8 @@ class FoodsController < ApplicationController
 
     if user_signed_in?
       @eaten_foods = current_user.eaten_foods.where(food_id: @food.id).joins(:review).includes(:review).order(ate_on: :desc)
+    else
+      @eaten_foods = EatenFood.none
     end
   end
 
