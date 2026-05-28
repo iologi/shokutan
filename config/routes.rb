@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   resources :eaten_foods, only: %i[index new create destroy] do
     resource :review, only: %i[new create]
   end
+  resources :reviews, only: %i[index]
 end

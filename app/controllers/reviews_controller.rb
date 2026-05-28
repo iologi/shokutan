@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+  def index
+    @reviews = Review.joins(:eaten_food).where(eaten_foods: { user_id: current_user.id }).includes(eaten_food: :food).order(eaten_foods: { ate_on: :desc })
+  end
+
   def new
     @eaten_food = current_user.eaten_foods.find(params[:eaten_food_id])
     @review = @eaten_food.build_review
