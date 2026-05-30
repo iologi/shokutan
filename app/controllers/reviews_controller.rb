@@ -18,6 +18,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    eaten_food = current_user.eaten_foods.find(params[:eaten_food_id])
+    review = eaten_food.review
+    review.destroy!
+    redirect_to reviews_path, notice: "レビューを削除しました"
+  end
+
   private
 
   def review_params
