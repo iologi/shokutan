@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
   resources :wishlist_foods, only: %i[create destroy]
   resources :eaten_foods, only: %i[index new create destroy] do
-    resource :review, only: %i[new create]
+    resource :review, only: %i[new create destroy]
   end
   resources :reviews, only: %i[index]
 end
