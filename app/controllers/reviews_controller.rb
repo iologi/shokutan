@@ -18,6 +18,21 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @eaten_food = current_user.eaten_foods.find(params[:eaten_food_id])
+    @review = @eaten_food.review
+  end
+
+  def update
+    @eaten_food = current_user.eaten_foods.find(params[:eaten_food_id])
+    @review = @eaten_food.review
+    if @review.update(review_params)
+      redirect_to reviews_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     eaten_food = current_user.eaten_foods.find(params[:eaten_food_id])
     review = eaten_food.review
