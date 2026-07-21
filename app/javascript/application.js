@@ -2,7 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import Raty from "./raty"
-import "./raty_display"
 
 // ratyアクションの定義
 window.raty = function(elem,opt){ 
