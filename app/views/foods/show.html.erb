@@ -67,21 +67,3 @@
       </div>
     <% end %>
   </div>
-
-<script>
-document.addEventListener("turbo:load", () => {
-  document.querySelectorAll(".raty").forEach((elem) => {
-    const score = Number(elem.dataset.score);
-
-    elem.innerHTML = "";
-
-    window.raty(elem, {
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      score: score,
-      readOnly: true,
-    });
-  });
-});
-</script>
