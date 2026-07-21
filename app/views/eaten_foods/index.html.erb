@@ -13,7 +13,7 @@
           <% if eaten.review.present? %>
             <div class="flex items-center justify-center gap-1">
               <p class="text-gray-800 font-semibold">満足度：</p>
-              <div id="star_<%= eaten.review.id %>" class="raty inline-block" data-score="<%= eaten.review.satisfaction %>"></div>
+              <div class="raty inline-block" data-score="<%= eaten.review.satisfaction %>"></div>
             </div>
           <% else %>
             <p class="text-gray-800 font-semibold">未レビュー</p>
@@ -45,21 +45,3 @@
     </div>
   <% end %>
 </div>
-
-<script>
-document.addEventListener("turbo:load", () => {
-  document.querySelectorAll(".raty").forEach((elem) => {
-    const score = Number(elem.dataset.score);
-
-    elem.innerHTML = "";
-
-    window.raty(elem, {
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      score: score,
-      readOnly: true,
-    });
-  });
-});
-</script>
