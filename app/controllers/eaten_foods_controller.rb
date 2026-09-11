@@ -11,7 +11,7 @@ class EatenFoodsController < ApplicationController
   def create
     @eaten_food = current_user.eaten_foods.build(eaten_food_params)
     if @eaten_food.save
-      redirect_to new_eaten_food_review_path(eaten_food_id: @eaten_food.id), notice: '「食べた」リストに追加しました'
+      redirect_to new_eaten_food_review_path(eaten_food_id: @eaten_food.id), notice: "「食べた」リストに追加しました"
     else
       render :new
     end
@@ -20,7 +20,7 @@ class EatenFoodsController < ApplicationController
   def destroy
     eaten_food = current_user.eaten_foods.find(params[:id])
     eaten_food.destroy!
-    redirect_to eaten_foods_path, notice: '「食べた」リストから削除しました'
+    redirect_to eaten_foods_path, notice: "「食べた」リストから削除しました"
   end
 
   private
