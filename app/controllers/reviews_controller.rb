@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @eaten_food = current_user.eaten_foods.find(params[:eaten_food_id])
     @review = @eaten_food.build_review(review_params)
     if @review.save
-      redirect_to food_path(@eaten_food.food)
+      redirect_to food_path(@eaten_food.food), notice: 'レビューを作成しました'
     else
       render :new
     end
@@ -27,8 +27,9 @@ class ReviewsController < ApplicationController
     @eaten_food = current_user.eaten_foods.find(params[:eaten_food_id])
     @review = @eaten_food.review
     if @review.update(review_params)
-      redirect_to reviews_path
+      redirect_to reviews_path, notice: 'レビューを更新しました'
     else
+      flash.now[:alert] = 'レビューの更新に失敗しました'
       render :edit, status: :unprocessable_entity
     end
   end
@@ -37,7 +38,7 @@ class ReviewsController < ApplicationController
     eaten_food = current_user.eaten_foods.find(params[:eaten_food_id])
     review = eaten_food.review
     review.destroy!
-    redirect_to reviews_path, notice: "レビューを削除しました"
+    redirect_to reviews_path, notice: 'レビューを削除しました'
   end
 
   private
