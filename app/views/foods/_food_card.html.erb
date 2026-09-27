@@ -15,6 +15,10 @@
       <% if user_signed_in? %>
         <!-- 「食べたい」(ブックマーク) -->
         <%= render 'wishlist_buttons', { food: food } %>
+      <% else %>
+        <%= link_to new_user_session_path, class: "text-red-400 text-2xl leading-none ml-2" do %>
+          <i class="bi bi-heart"></i>
+        <% end %>
       <% end %>
     </div>
     <!-- レア度 -->
