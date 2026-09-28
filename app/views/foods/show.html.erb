@@ -31,6 +31,13 @@
         </div>
         <!-- 食べたボタン日付入力フォーム -->
         <div id="eaten-food-form-<%= @food.id %>"></div>
+      <% else %>
+        <div class="flex items-center gap-4 mt-3">
+          <%= link_to "食べた", new_user_session_path, class: "px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700" %>
+          <%= link_to new_user_session_path, class: "text-red-400 text-2xl leading-none ml-2" do %>
+            <i class="bi bi-heart"></i>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
