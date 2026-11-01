@@ -19,36 +19,45 @@
               <p class="text-gray-600 text-lg font-semibold">カテゴリー : <%= food.category.name %></p>
               <p class="text-gray-500 text-sm">食べた日：<%= eaten.ate_on %></p>
             </div>
-          <div class="flex flex-col gap-2 items-end">
-            <!-- 編集ボタン -->
-            <%= link_to "レビューを編集", edit_eaten_food_review_path(eaten_food_id: eaten.id), class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %>
-            <!-- 削除ボタン -->
-            <%= link_to "削除", eaten_food_review_path(eaten), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" }, class: "inline-flex items-center gap-2 bg-red-600 text-white font-bold px-3 py-1.5 rounded-md hover:bg-red-700 text-sm" %>
-          </div>
-        </div>
-        <div class="flex justify-between items-center">
-          <div class="flex items-center gap-10">
-            <!-- レア度 -->
-            <div class="flex items-center gap-1">
-              <p class="text-lg font-semibold text-gray-800">レア度：</p>
-              <span class="text-yellow-400 font-bold text-xl inline-block w-16">
-                <%= "♦" * food.rarity_before_type_cast %>
-              </span>
-            </div>
-            <!-- 満足度 -->
-            <div class="flex items-center gap-1">
-              <p class="text-gray-800 font-semibold">満足度：</p>
-              <div id="star_<%= eaten.review.id %>"
-                  class="raty inline-block"
-                  data-score="<%= eaten.review.satisfaction %>"></div>
+            <div class="flex flex-col gap-2 items-end">
+              <!-- 編集ボタン -->
+              <%= link_to "レビューを編集", edit_eaten_food_review_path(eaten_food_id: eaten.id), class: "inline-flex items-center gap-2 border border-gray-400 text-gray-800 font-bold bg-white px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm" %>
+              <!-- 削除ボタン -->
+              <%= link_to "削除", eaten_food_review_path(eaten), data: { turbo_method: :delete, turbo_confirm: "削除しますか？" }, class: "inline-flex items-center gap-2 bg-red-600 text-white font-bold px-3 py-1.5 rounded-md hover:bg-red-700 text-sm" %>
             </div>
           </div>
-        </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-10">
+              <!-- レア度 -->
+              <div class="flex items-center gap-1">
+                <p class="text-lg font-semibold text-gray-800">レア度：</p>
+                <span class="text-yellow-400 font-bold text-xl inline-block w-16">
+                  <%= "♦" * food.rarity_before_type_cast %>
+                </span>
+              </div>
+              <!-- 満足度 -->
+              <div class="flex items-center gap-1">
+                <p class="text-gray-800 font-semibold">満足度：</p>
+                <div id="star_<%= eaten.review.id %>"
+                    class="raty inline-block"
+                    data-score="<%= eaten.review.satisfaction %>"></div>
+              </div>
+            </div>
+          </div>
           <!-- コメント -->
-          <div class="mt-1">
-            <p class="text-gray-700 text-xl">
-              <%= review.comment %>
-            </p>
+          <div class="flex items-center gap-3">
+            <span class="inline-block bg-gray-200 px-3 py-1 rounded-md text-gray-700 font-semibold">コメント</span>
+            <span class="text-lg text-gray-800"><%= review.comment %></span>
+          </div>
+          <!-- 調理方法・料理名 -->
+          <div class="flex items-center gap-3">
+            <span class="inline-block bg-gray-200 px-3 py-1 rounded-md text-gray-700 font-semibold">調理方法・料理名</span>
+            <span class="text-lg text-gray-800"><%= review.recipe %></span>
+          </div>
+          <!-- 食べた場所 -->
+          <div class="flex items-center gap-3">
+            <span class="inline-block bg-gray-200 px-3 py-1 rounded-md text-gray-700 font-semibold">食べた場所</span>
+            <span class="text-lg text-gray-800"><%= review.place %></span>
           </div>
         </div>
       </div>

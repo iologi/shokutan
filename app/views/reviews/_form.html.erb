@@ -1,20 +1,30 @@
 <%= form_with model: @review, url: eaten_food_review_path(@eaten_food) do |f| %>
-      <div class="field mb-2">
-        <p><%= f.label :satisfaction, "満足度", class: "block text-sm font-medium text-gray-700" %></p>
-        <!-- ratyを描画 -->
-        <div id="star_new" class="raty"></div>
-        <!-- 実際に送信される値 -->
-        <%= f.hidden_field :satisfaction, id: "satisfaction_new" %>
-      </div>
+  <div class="field mb-2">
+    <p><%= f.label :satisfaction, "満足度", class: "block text-sm font-medium text-gray-700" %></p>
+    <!-- ratyを描画 -->
+    <div id="star_new" class="raty"></div>
+    <!-- 実際に送信される値 -->
+    <%= f.hidden_field :satisfaction, id: "satisfaction_new" %>
+  </div>
 
-      <div class="field">
-        <p><%= f.label :comment, "コメント", class: "block text-sm font-medium text-gray-700" %></p>
-        <p><%= f.text_field :comment, class: "mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm" %></p>
-      </div>
+  <div class="field">
+    <p><%= f.label :comment, "コメント", class: "block text-sm font-medium text-gray-700" %></p>
+    <p><%= f.text_field :comment, class: "mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm mb-2" %></p>
+  </div>
 
-      <div class="actions mt-6">
-        <%= f.submit "投稿", class: "w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition" %>
-      </div>
+  <div class="field">
+    <p><%= f.label :recipe, "調理方法 ・ 料理名 ", class: "block text-sm font-medium text-gray-700" %></p>
+    <p><%= f.text_field :recipe, class: "mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm mb-2" %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :place, "食べた場所", class: "block text-sm font-medium text-gray-700" %></p>
+    <p><%= f.text_field :place, class: "mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm mb-2" %></p>
+  </div>
+
+  <div class="actions mt-6">
+    <%= f.submit "投稿", class: "w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition" %>
+  </div>
 <% end %>
 
 <script>
